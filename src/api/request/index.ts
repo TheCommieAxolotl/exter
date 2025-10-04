@@ -44,7 +44,12 @@ export async function executeRequest<R extends RouteDefinition<string, UnsafeAny
 	requestInit?: RequestInit,
 ): Promise<RequestReturn<R['result']>> {
 	const targetEndpoint = generateFormattedPath(route.endpoint, params);
-	const url = new URL(targetEndpoint, options.baseUrl);
+	const baseUrl = new URL(options.baseUrl);
+
+	const targetPathname = baseUrl.pathname.endsWith('/') ? baseUrl.pathname.slice(0, -1) : baseUrl.pathname;
+	const formattedPathname = targetEndpoint.startsWith('/') ? targetEndpoint : `/${targetEndpoint}`;
+
+	const url = new URL(`${targetPathname}${formattedPathname}`, baseUrl);
 
 	if (query) {
 		if (typeof query === 'string') {
