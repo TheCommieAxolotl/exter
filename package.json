@@ -1,0 +1,59 @@
+{
+	"name": "exter",
+	"version": "0.0.1",
+	"description": "Make any API typesafe.",
+	"main": "dist/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"test": "vitest",
+		"build": "tsx scripts/build.ts",
+		"dev": "tsx scripts/build.ts --dev",
+		"format": "pnpm exec biome check --write"
+	},
+	"keywords": [
+		"typescript",
+		"api",
+		"wrapper",
+		"typesafe",
+		"http",
+		"rest",
+		"client",
+		"api-client",
+		"type-safe",
+		"fetch"
+	],
+	"author": "TheCommieAxolotl",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TheCommieAxolotl/exter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/TheCommieAxolotl/exter/issues"
+	},
+	"homepage": "https://github.com/TheCommieAxolotl/exter#readme",
+	"dependencies": {
+		"@standard-schema/spec": "^1.0.0"
+	},
+	"devDependencies": {
+		"arktype": "^2.1.22",
+		"esbuild": "^0.19.0",
+		"path-to-regexp": "^8.3.0",
+		"tsx": "^3.12.0",
+		"typescript": "^5.0.0",
+		"vitest": "^3.2.4"
+	},
+	"peerDependencies": {
+		"arktype": "^2.0.0"
+	},
+	"peerDependenciesMeta": {
+		"arktype": {
+			"optional": true
+		}
+	},
+	"files": [
+		"dist"
+	]
+}
